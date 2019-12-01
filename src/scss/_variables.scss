@@ -1,5 +1,8 @@
-$rf-grid-columns: 12;
-$rf-grid-gutter: 3rem;
+
+$rf-grid-columns: 12 !default;
+
+$rf-grid-gutter: 3rem !default;
+
 $rf-grid-breakpoints: (
     xs: 0,
     sm: 576px,
@@ -7,4 +10,11 @@ $rf-grid-breakpoints: (
     lg: 992px,
     xl: 1200px,
     xxl: 1600px,
-);
+) !default;
+
+$rf-displays: (
+    none,
+    block,
+    flex,
+    inline-block,
+) !default;

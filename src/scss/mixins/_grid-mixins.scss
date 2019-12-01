@@ -29,7 +29,7 @@
     $bp-min-size: get-breakpoint-size($min);
     $bp-max-size: get-breakpoint-size($max) - 1; // avoids overlap
 
-    @if ($bp-min-size > 0 && $bp-max-size > 0) {
+    @if ($bp-min-size > 0 and $bp-max-size > 0) {
         @media (min-width: $bp-min-size) and (max-width: $bp-max-size) {
             @content;
         }

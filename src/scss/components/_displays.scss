@@ -1,0 +1,11 @@
+@each $display in $rf-displays {
+    @each $infix, $breakpoint in $rf-grid-breakpoints {
+        $col-infix: get-col-infix($infix);
+
+        @include mq-up($infix) {
+            .d#{$col-infix}-#{$display} {
+                display: $display !important;
+            }
+        }
+    }
+}
