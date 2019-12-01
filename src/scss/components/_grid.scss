@@ -7,7 +7,9 @@
 
 // Generates columns with automatic width/flex-basis
 @each $infix, $breakpoint in $rf-grid-breakpoints {
-    .col-#{$infix} {
+    $col-infix: get-col-infix($infix);
+
+    .col#{$col-infix} {
         @include mq-up($infix) {
             width: auto;
     

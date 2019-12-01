@@ -18,3 +18,16 @@ $rf-displays: (
     flex,
     inline-block,
 ) !default;
+
+$rf-sides: (
+    t: '-top',
+    r: '-right',
+    b: '-bottom',
+    l: '-left',
+) !default;
+
+$rf-sizes: (
+    1: 0.5rem,
+    2: 1rem,
+    3: 1.5rem,
+) !default;

@@ -1,0 +1,13 @@
+@each $side, $prop in $rf-sides {
+    @each $key, $size in $rf-sizes {
+        @each $infix, $breakpoint in $rf-grid-breakpoints {
+            $col-infix: get-col-infix($infix);
+
+            .m#{$side}#{$col-infix}-#{$key} {
+                @include mq-up($infix) {
+                    margin#{$prop}: $size !important;
+                }
+            }     
+        }
+    }
+}
