@@ -1,32 +1,27 @@
-@function get-breakpoint-size($key) {
-    @return map-get($rf-grid-breakpoints, $key)
+
+// returns the breakpoint size given its key
+@function get-breakpoint-size($key, $breakpoints: $rf-grid-breakpoints) {
+    @return map-get($breakpoints, $key);
 }
 
-@function get-breakpoint-infix($infix, $breakpoint) {
-    $infix-value: map-get($map: $rf-grid-breakpoints, $key: $infix);
+// returns the infix breakpoint string to be used in the grid loop.
+// by default skips 'xs' and doesn't write its infix.
+@function get-col-infix($infix) {
+    $infix-value: get-breakpoint-size($infix);
 
-    @if ($infix-value == 0) {
-        @return ''
-    }
-    @else {
+    @if ($infix-value > 0) {
         @return #{'-' + $infix};
     }
+
+    @return '';
 }
 
-@function get-col-size($size) {
-    @if $size == 0 {
-        @return ''
-    }
-    @else {
-        @return #{'-' + $size}
-    }
+// returns the column index in a string form for the column class name
+@function get-col-index($index) {
+    @return #{'-' + $index};
 }
 
-@function get-col-width($col-size) {
-    @if $col-size > 0 {
-        @return percentage($col-size / $rf-grid-columns)
-    }
-    @else {
-        @return percentage(1);
-    }
+// returns column size
+@function get-col-width($col-index, $columns: $rf-grid-columns) {
+    @return percentage($col-index / $columns);
 }

@@ -1,31 +1,60 @@
+
 @mixin mq-up($bp) {
     $bp-size: get-breakpoint-size($bp);
 
     @if ($bp-size > 0) {
         @media (min-width: $bp-size) {
-            @content
+            @content;
         }
     }
     @else {
-        @content
+        @content;
     }
 }
 
-@mixin create-column($size, $breakpoint-infix, $breakpoint) {
-    $infix: get-breakpoint-infix($breakpoint-infix, $breakpoint);
-    $width: get-col-width($size);
-    $col-size: get-col-size($size);
+@mixin mq-down($bp) {
+    $bp-size: get-breakpoint-size($bp);
 
-    .col#{$infix}#{$col-size} {
+    @if ($bp-size > 0) {
+        @media (max-width: $bp-size) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin mq-between($min, $max) {
+    $bp-min-size: get-breakpoint-size($min);
+    $bp-max-size: get-breakpoint-size($max) - 1; // avoids overlap
+
+    @if ($bp-min-size > 0 && $bp-max-size > 0) {
+        @media (min-width: $bp-min-size) and (max-width: $bp-max-size) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin create-column($size, $breakpoint-infix) {
+    $col-infix: get-col-infix($breakpoint-infix);
+    $col-width: get-col-width($size);
+    $col-index: get-col-index($size);
+
+    .col#{$col-infix}#{$col-index} {
         @include mq-up($breakpoint-infix) {
             display: inline-block;
-            width: $width;
-            max-width: $width;
+            width: $col-width;
+            max-width: $col-width;
 
+            // if the browser supports flexbox
             @supports (display: flex) {
                 flex-grow: 1;
                 flex-shrink: 0;
-                flex-basis: $width;
+                flex-basis: $col-width;
             }
         }
     }
