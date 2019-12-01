@@ -1,0 +1,32 @@
+@function get-breakpoint-size($key) {
+    @return map-get($rf-grid-breakpoints, $key)
+}
+
+@function get-breakpoint-infix($infix, $breakpoint) {
+    $infix-value: map-get($map: $rf-grid-breakpoints, $key: $infix);
+
+    @if ($infix-value == 0) {
+        @return ''
+    }
+    @else {
+        @return #{'-' + $infix};
+    }
+}
+
+@function get-col-size($size) {
+    @if $size == 0 {
+        @return ''
+    }
+    @else {
+        @return #{'-' + $size}
+    }
+}
+
+@function get-col-width($col-size) {
+    @if $col-size > 0 {
+        @return percentage($col-size / $rf-grid-columns)
+    }
+    @else {
+        @return percentage(1);
+    }
+}

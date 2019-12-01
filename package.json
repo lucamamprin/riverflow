@@ -1,0 +1,30 @@
+{
+  "name": "riverflow",
+  "version": "1.0.0",
+  "description": "A11Y first, progressively enhanced CSS library written in OOCSS.",
+  "scripts": {
+    "css-compile": "node-sass --source-map true --source-map-contents true src/scss/ -o dist/css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucamamprin/riverflow.git"
+  },
+  "keywords": [
+    "oocss",
+    "a11y",
+    "accessibility",
+    "progressive enhancement"
+  ],
+  "author": "Luca Mamprin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucamamprin/riverflow/issues"
+  },
+  "homepage": "https://github.com/lucamamprin/riverflow#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}

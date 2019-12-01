@@ -1,0 +1,5 @@
+@for $col from 1 through $rf-grid-columns {
+    @each $infix, $breakpoint in $rf-grid-breakpoints {
+        @include create-column($col, $infix, $breakpoint);
+    }
+}

@@ -1,0 +1,32 @@
+@mixin mq-up($bp) {
+    $bp-size: get-breakpoint-size($bp);
+
+    @if ($bp-size > 0) {
+        @media (min-width: $bp-size) {
+            @content
+        }
+    }
+    @else {
+        @content
+    }
+}
+
+@mixin create-column($size, $breakpoint-infix, $breakpoint) {
+    $infix: get-breakpoint-infix($breakpoint-infix, $breakpoint);
+    $width: get-col-width($size);
+    $col-size: get-col-size($size);
+
+    .col#{$infix}#{$col-size} {
+        @include mq-up($breakpoint-infix) {
+            display: inline-block;
+            width: $width;
+            max-width: $width;
+
+            @supports (display: flex) {
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: $width;
+            }
+        }
+    }
+}
