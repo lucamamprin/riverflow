@@ -9,7 +9,7 @@
 @each $infix, $breakpoint in $rf-grid-breakpoints {
     $col-infix: get-col-infix($infix);
 
-    .col#{$col-infix} {
+    .#{rf-class-name(col, $col-infix)}  {
         @include mq-up($infix) {
             width: auto;
     

@@ -42,9 +42,8 @@
 @mixin create-column($size, $breakpoint-infix) {
     $col-infix: get-col-infix($breakpoint-infix);
     $col-width: get-col-width($size);
-    $col-index: get-col-index($size);
 
-    .col#{$col-infix}#{$col-index} {
+    .#{rf-class-name(col, $col-infix, $size)} {
         @include mq-up($breakpoint-infix) {
             display: inline-block;
             width: $col-width;

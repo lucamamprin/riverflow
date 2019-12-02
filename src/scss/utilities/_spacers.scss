@@ -3,11 +3,15 @@
         @each $infix, $breakpoint in $rf-grid-breakpoints {
             $col-infix: get-col-infix($infix);
 
-            .m#{$side}#{$col-infix}-#{$key} {
-                @include mq-up($infix) {
-                    margin#{$prop}: $size !important;
+            @include mq-up($infix) {
+                .#{rf-class-name(m#{$side}, $col-infix, $key)} {
+                        margin-#{$prop}: $size !important;
                 }
-            }     
+
+                .#{rf-class-name(p#{$side}, $col-infix, $key)} {
+                        padding-#{$prop}: $size !important;
+                }
+            }
         }
     }
 }

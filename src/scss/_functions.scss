@@ -1,3 +1,17 @@
+// args: $start to define the first part of the class name
+//       $suffixes to define the subsequent parts of the class name
+
+@function rf-class-name($start, $suffixes...) {
+  $suffix: '';
+
+  @each $arg in $suffixes {
+      @if $arg != '' {
+        $suffix: $suffix + '-' + $arg;
+      }
+  }
+
+  @return $start + $suffix;
+}
 
 // returns the breakpoint size given its key
 @function get-breakpoint-size($key, $breakpoints: $rf-grid-breakpoints) {
@@ -10,15 +24,10 @@
     $infix-value: get-breakpoint-size($infix);
 
     @if ($infix-value > 0) {
-        @return #{'-' + $infix};
+        @return $infix;
     }
 
     @return '';
-}
-
-// returns the column index in a string form for the column class name
-@function get-col-index($index) {
-    @return #{'-' + $index};
 }
 
 // returns column size
