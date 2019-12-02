@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A11Y first, progressively enhanced CSS library written in OOCSS.",
   "scripts": {
-    "css-compile": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js --source-map true --source-map-contents true src/scss/ -o dist/css/"
+    "css-dev": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js --source-map true --source-map-contents true src/scss/ -o dist/css/",
+    "css-prod": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js --output-style compressed src/scss/ -o dist/css/"
   },
   "repository": {
     "type": "git",
