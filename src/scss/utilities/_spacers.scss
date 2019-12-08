@@ -1,17 +1,54 @@
-@each $side, $prop in $rf-sides {
-    @each $key, $size in $rf-sizes {
-        @each $infix, $breakpoint in $rf-grid-breakpoints {
-            $col-infix: get-col-infix($infix);
+// Margin and padding classes by side value
+@each $infix, $breakpoint in $rf-grid-breakpoints {
+    $col-infix: get-col-infix($infix);
 
-            @include mq-up($infix) {
+    @include mq-up($infix) {
+        @each $key, $size in $rf-sizes {
+
+            // single side
+            @each $side, $prop in $rf-sides {
                 .#{rf-class-name(m#{$side}, $col-infix, $key)} {
-                        margin-#{$prop}: $size !important;
+                    @each $side in $prop {
+                        margin-#{$side}: $size !important;
+                    }
                 }
 
                 .#{rf-class-name(p#{$side}, $col-infix, $key)} {
-                        padding-#{$prop}: $size !important;
+                    @each $side in $prop {
+                        padding-#{$side}: $size !important;
+                    }
                 }
             }
+
+            // all sides
+            .#{rf-class-name(m, $col-infix, $key)} {
+                margin: $size !important;
+            }
+
+            .#{rf-class-name(p, $col-infix, $key)} {
+                padding: $size !important;
+            }
+        }
+    }
+}
+
+// Automatic margin classes 
+@each $infix, $breakpoint in $rf-grid-breakpoints {
+    $col-infix: get-col-infix($infix);
+
+    @include mq-up($infix) {
+        @each $side, $prop in $rf-sides {
+            // (y, x classes on default)
+            .#{rf-class-name(m#{$side}, $col-infix, auto)} {
+                @each $side in $prop {
+                    margin-#{$side}: auto !important;
+                }
+            }
+        }
+
+        // all sides
+        .#{rf-class-name(m, $col-infix, auto)} {
+            margin: auto !important;
         }
     }
 }

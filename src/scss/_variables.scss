@@ -19,12 +19,17 @@ $rf-displays: (
     inline-block,
 ) !default;
 
-$rf-sides: (
+$rf-sides-automatic-margins: (
+    y: ('top', 'bottom'),
+    x: ('right', 'left'),
+) !default;
+
+$rf-sides: map-merge((
     t: 'top',
     r: 'right',
     b: 'bottom',
     l: 'left',
-) !default;
+), $rf-sides-automatic-margins) !default;
 
 $rf-sizes: (
     1: 0.5rem,
