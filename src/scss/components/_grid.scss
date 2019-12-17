@@ -1,7 +1,7 @@
-// Generates all the columns for all breakpoints
-@for $col from 1 through $rf-grid-columns {
+// Generates all the columns for all breakpoints with a set max-width/flex-basis
+@for $col-size from 1 through $rf-grid-columns {
     @each $infix, $breakpoint in $rf-grid-breakpoints {
-        @include create-column($col, $infix);
+        @include create-column($col-size, $infix);
     }
 }
 
@@ -9,7 +9,7 @@
 @each $infix, $breakpoint in $rf-grid-breakpoints {
     $col-infix: get-col-infix($infix);
 
-    .#{rf-class-name(col, $col-infix)}  {
+    .#{rf-class-name(#{$rf-grid-prefix}, $col-infix)}  {
         @include mq-up($infix) {
             width: auto;
     

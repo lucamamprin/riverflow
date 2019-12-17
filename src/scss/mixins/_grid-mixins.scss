@@ -43,7 +43,7 @@
     $col-infix: get-col-infix($breakpoint-infix);
     $col-width: get-col-width($size);
 
-    .#{rf-class-name(col, $col-infix, $size)} {
+    .#{rf-class-name(#{$rf-grid-prefix}, $col-infix, $size)} {
         @include mq-up($breakpoint-infix) {
             display: inline-block;
             width: $col-width;
