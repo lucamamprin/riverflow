@@ -21,3 +21,26 @@
         }
     }
 }
+
+.container-fluid {
+    @include create-container;
+}
+
+.container {
+    @extend .container-fluid;
+
+    @each $infix, $breakpoint in $rf-grid-breakpoints {
+        $col-infix: get-col-infix($infix);
+        $max-width: $breakpoint - $rf-grid-gutter;
+    
+        @if $max-width > 0 {
+            @include mq-up($infix) {
+                max-width: $breakpoint - $rf-grid-gutter;
+            }
+        }
+    }
+}
+
+.row {
+    @include create-row;
+}
