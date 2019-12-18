@@ -22,7 +22,6 @@
     }
 }
 
-
 .container-fluid {
     @include create-container;
 }
@@ -40,4 +39,8 @@
             }
         }
     }
+}
+
+.row {
+    @include create-row;
 }
