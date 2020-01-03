@@ -1,6 +1,6 @@
 {
   "name": "riverflow",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A11Y first, progressively enhanced CSS library written in OOCSS.",
   "scripts": {
     "css-watch": "node-sass --watch --importer node_modules/node-sass-package-importer/dist/cli.js --source-map true --source-map-contents true src/scss/ -o dist/css/",
