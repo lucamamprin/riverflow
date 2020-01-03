@@ -1,0 +1,25 @@
+// For content visible only to screen readers.
+// As seen on: https://a11yproject.com/posts/how-to-hide-content/
+@mixin rf-sr-only {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); //IE6, IE7 
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+// To use in conjunction with rf-sr-only for skip to main content links
+// Credit: HTML5 Boilerplate
+@mixin rf-sr-focus {
+    &:active,
+    &:focus {
+      position: static !important;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+}
