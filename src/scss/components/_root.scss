@@ -4,5 +4,9 @@
     @each $prop, $val in $rf-css-variables {
         #{--#{$prop}}: $val;
     }
+
+    @each $bp, $value in $rf-grid-breakpoints {
+      --breakpoint-#{$bp}: #{$value};
+    }
   }
 }

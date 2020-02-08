@@ -18,6 +18,15 @@ $rf-grid-breakpoints: (
     xxl: 1600px,
 ) !default;
 
+$rf-container-widths: (
+    container-width-xs: map-get($rf-grid-breakpoints, xs) - $rf-grid-gutter,
+    container-width-sm: map-get($rf-grid-breakpoints, sm) - $rf-grid-gutter,
+    container-width-md: map-get($rf-grid-breakpoints, md) - $rf-grid-gutter,
+    container-width-lg: map-get($rf-grid-breakpoints, lg) - $rf-grid-gutter,
+    container-width-xl: map-get($rf-grid-breakpoints, xl) - $rf-grid-gutter,
+    container-width-xxl: map-get($rf-grid-breakpoints, xxl) - $rf-grid-gutter,
+) !default;
+
 $rf-displays: (
     none,
     block,
@@ -52,4 +61,5 @@ $rf-css-variables: rf-map-collect(
   $rf-theme-colors,
   $rf-font-families,
   $rf-sizes,
+  $rf-container-widths,
 ) !default;
