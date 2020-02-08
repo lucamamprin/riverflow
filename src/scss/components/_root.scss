@@ -1,0 +1,12 @@
+// Define root variables
+:root {
+  @if $rf-enable-css-variables {
+    @each $prop, $val in $rf-css-variables {
+        #{--#{$prop}}: $val;
+    }
+
+    @each $bp, $value in $rf-grid-breakpoints {
+      --breakpoint-#{$bp}: #{$value};
+    }
+  }
+}

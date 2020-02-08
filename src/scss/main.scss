@@ -1,11 +1,15 @@
 @import "~normalize.css/normalize.css";
 
-@import "variables";
 @import "functions";
 
-@import "mixins/grid-mixins";
-@import "mixins/a11y-mixins";
+@import "color-variables";
+@import "variables";
 
+@import "mixins/a11y-mixins";
+@import "mixins/grid-mixins";
+@import "mixins/pe-mixins";
+
+@import "components/root";
 @import "components/grid";
 
 @import "utilities/displays";

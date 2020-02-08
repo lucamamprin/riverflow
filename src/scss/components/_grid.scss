@@ -29,13 +29,13 @@
 .container {
     @extend .container-fluid;
 
-    @each $infix, $breakpoint in $rf-grid-breakpoints {
-        $col-infix: get-col-infix($infix);
-        $max-width: $breakpoint - $rf-grid-gutter;
-    
-        @if $max-width > 0 {
-            @include mq-up($infix) {
-                max-width: $breakpoint - $rf-grid-gutter;
+    // assign max width in corresponding breakpoint
+    @each $css-variable, $width in $rf-container-widths {
+        $breakpoint: str-replace($css-variable, 'container-width-');
+
+        @if $width > 0 { // avoids default xs value
+            @include mq-up($breakpoint) {
+                @include css-variable(max-width, $css-variable);
             }
         }
     }
