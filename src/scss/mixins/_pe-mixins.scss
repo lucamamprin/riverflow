@@ -3,12 +3,18 @@
 // @params: $prop - CSS property you want to set
 //          $key - key from the $css-variables map
 
-@mixin css-variable($prop, $key) {
-    @if $enable-css-variables-fallback {
-        #{$prop}: #{map-get($css-variables, $key)}; //fallback for old browsers
+@mixin css-variable($prop, $key, $important: null) {
+    @debug map-get($rf-css-variables, $key);
+
+    @if $important {
+        $important: !important
     }
 
-    @if $enable-css-variables {
-        #{$prop}: var(--#{$key}); // CSS variable
+    @if $rf-enable-css-variables-fallback {
+        #{$prop}: #{map-get($rf-css-variables, $key)} $important; //fallback for old browsers
+    }
+
+    @if $rf-enable-css-variables {
+        #{$prop}: var(--#{$key}) $important; // CSS variable
     }
 }

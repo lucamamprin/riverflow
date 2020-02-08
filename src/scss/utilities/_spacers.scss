@@ -8,27 +8,26 @@
 
             // single side
             @each $side, $prop in $rf-sides {
-
                 .#{rf-class-name(m#{$side}, $col-infix, $index)} {
                     @each $side in $prop {
-                        margin-#{$side}: $size !important;
+                        @include css-variable(margin-#{$side}, $key, true);
                     }
                 }
 
                 .#{rf-class-name(p#{$side}, $col-infix, $index)} {
                     @each $side in $prop {
-                        padding-#{$side}: $size !important;
+                        @include css-variable(padding-#{$side}, $key, true);
                     }
                 }
             }
 
             // all sides
             .#{rf-class-name(m, $col-infix, $index)} {
-                margin: $size !important;
+                @include css-variable(margin, $key, true);
             }
 
             .#{rf-class-name(p, $col-infix, $index)} {
-                padding: $size !important;
+                @include css-variable(padding, $key, true);
             }
         }
     }
