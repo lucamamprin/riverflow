@@ -4,8 +4,6 @@
 //          $key - key from the $css-variables map
 
 @mixin css-variable($prop, $key, $important: null) {
-    @debug map-get($rf-css-variables, $key);
-
     @if $important {
         $important: !important
     }
