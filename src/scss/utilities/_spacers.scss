@@ -4,7 +4,7 @@
 
     @include mq-up($infix) {
         @each $key, $size in $rf-sizes {
-            $index: index($rf-sizes, $key $size);
+            $index: index($rf-sizes, $key $size) - 1;
 
             // single side
             @each $side, $prop in $rf-sides {

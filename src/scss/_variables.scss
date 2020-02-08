@@ -47,6 +47,7 @@ $rf-sides: map-merge((
 ), $rf-sides-automatic-margins) !default;
 
 $rf-sizes: (
+    'size-0': 0,
     'size-1': 0.5rem,
     'size-2': 1rem,
     'size-3': 1.5rem,
