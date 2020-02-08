@@ -52,4 +52,4 @@ $rf-css-variables: rf-map-collect(
   $rf-theme-colors,
   $rf-font-families,
   $rf-sizes,
-);
+) !default;
