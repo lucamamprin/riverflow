@@ -34,3 +34,15 @@
 @function get-col-width($col-index, $columns: $rf-grid-columns) {
     @return percentage($col-index / $columns);
 }
+
+// Credits to https://stackoverflow.com/a/30740182
+// Allows merging of multiple maps
+@function rf-map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+  
+  @return $collection;
+}

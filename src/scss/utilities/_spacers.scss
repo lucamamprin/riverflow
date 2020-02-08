@@ -4,16 +4,18 @@
 
     @include mq-up($infix) {
         @each $key, $size in $rf-sizes {
+            $index: index($rf-sizes, $key $size);
 
             // single side
             @each $side, $prop in $rf-sides {
-                .#{rf-class-name(m#{$side}, $col-infix, $key)} {
+
+                .#{rf-class-name(m#{$side}, $col-infix, $index)} {
                     @each $side in $prop {
                         margin-#{$side}: $size !important;
                     }
                 }
 
-                .#{rf-class-name(p#{$side}, $col-infix, $key)} {
+                .#{rf-class-name(p#{$side}, $col-infix, $index)} {
                     @each $side in $prop {
                         padding-#{$side}: $size !important;
                     }
@@ -21,11 +23,11 @@
             }
 
             // all sides
-            .#{rf-class-name(m, $col-infix, $key)} {
+            .#{rf-class-name(m, $col-infix, $index)} {
                 margin: $size !important;
             }
 
-            .#{rf-class-name(p, $col-infix, $key)} {
+            .#{rf-class-name(p, $col-infix, $index)} {
                 padding: $size !important;
             }
         }

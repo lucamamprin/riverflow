@@ -1,0 +1,14 @@
+// This provides an easy way of dealing with CSS Variables in a theme
+// If $enable-css-variables-fallback is set to true, it will compile a fallback for older browsers
+// @params: $prop - CSS property you want to set
+//          $key - key from the $css-variables map
+
+@mixin css-variable($prop, $key) {
+    @if $enable-css-variables-fallback {
+        #{$prop}: #{map-get($css-variables, $key)}; //fallback for old browsers
+    }
+
+    @if $enable-css-variables {
+        #{$prop}: var(--#{$key}); // CSS variable
+    }
+}

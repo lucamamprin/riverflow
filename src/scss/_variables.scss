@@ -1,4 +1,9 @@
 
+// These two variables are used in the css-variables mixin.
+// WARNING: If both are set to 'false' no CSS will be compiled!
+$rf-enable-css-variables-fallback: true !default; // enables fallback for older browser that don't support CSS Variables.
+$rf-enable-css-variables: true !default;
+
 $rf-grid-columns: 12 !default;
 $rf-grid-prefix: 'col' !default; // without 'dot'
 
@@ -33,7 +38,18 @@ $rf-sides: map-merge((
 ), $rf-sides-automatic-margins) !default;
 
 $rf-sizes: (
-    1: 0.5rem,
-    2: 1rem,
-    3: 1.5rem,
+    'size-1': 0.5rem,
+    'size-2': 1rem,
+    'size-3': 1.5rem,
 ) !default;
+
+$rf-font-families: (
+  "font-family-headings": "'Times New Roman', serif",
+  "font-family-base": "Helvetica, Arial, sans-serif",
+) !default;
+
+$rf-css-variables: rf-map-collect(
+  $rf-theme-colors,
+  $rf-font-families,
+  $rf-sizes,
+);

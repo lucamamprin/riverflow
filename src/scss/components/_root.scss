@@ -1,0 +1,8 @@
+// Define root variables
+:root {
+  @if $rf-enable-css-variables {
+    @each $prop, $val in $rf-css-variables {
+        #{--#{$prop}}: $val;
+    }
+  }
+}
